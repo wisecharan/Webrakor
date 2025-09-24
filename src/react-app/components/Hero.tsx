@@ -48,7 +48,7 @@ const AnimatedSection: FC<AnimatedSectionProps> = ({ children, delay = 0 }) => {
     observer.observe(node);
 
     return () => {
-      observer.unobserve(node); // ✅ always cleanup the same node
+      observer.unobserve(node); 
     };
   }, [delay]);
 
@@ -98,9 +98,11 @@ export default function Hero() {
 
         {/* CTA Button */}
         <AnimatedSection delay={300}>
-          <button className="bg-black text-white px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-medium hover:bg-gray-800 shadow-md transition-colors mb-6">
-            Get Started for free
-          </button>
+          <a href="/Contact">
+            <button className="bg-black text-white px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-medium hover:bg-gray-800 shadow-md transition-colors mb-6">
+              Get Started for free
+            </button>
+          </a>
         </AnimatedSection>
 
         {/* Social Proof */}

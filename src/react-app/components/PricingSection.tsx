@@ -343,182 +343,38 @@ export default function PricingSection() {
           </div>
         </AnimatedSection>
 
-        {/* Custom Package Section Title */}
-        <AnimatedSection delay={200}>
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3">
-              Custom Package
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Select exactly the features you need. Watch your custom package price update in real-time.
-            </p>
-          </div>
-        </AnimatedSection>
-
-        {/* Custom Feature Selection */}
+        {/* Content Image Section */}
         <AnimatedSection delay={300}>
-          <div className="mb-16">
-            <div className="flex flex-col lg:flex-row gap-8">
-              {/* Feature Selection */}
-              <div className="lg:w-2/3">
-                <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
-                  {Object.entries(featuresByCategory).map(([category, features]) => (
-                    <div key={category} className="border-b border-gray-100 last:border-b-0">
-                      <button
-                        onClick={() => toggleCategory(category)}
-                        className="w-full px-6 py-5 flex justify-between items-center hover:bg-gray-50 transition-colors group"
-                      >
-                        <h3 className="text-lg font-semibold text-gray-900">{category}</h3>
-                        {expandedCategories[category] ? (
-                          <Minus className="w-5 h-5 text-gray-500" />
-                        ) : (
-                          <Plus className="w-5 h-5 text-gray-500" />
-                        )}
-                      </button>
-
-                      {expandedCategories[category] && (
-                        <div className="px-6 pb-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-                          {features.map(feature => (
-                            <div
-                              key={feature.id}
-                              className={`p-5 rounded-lg border cursor-pointer transition-all ${selectedFeatures[feature.id]
-                                  ? 'border-[#c6f678] bg-[#c6f678]/5'
-                                  : 'border-gray-100 hover:border-gray-200'
-                                }`}
-                              onClick={() => toggleFeature(feature.id)}
-                            >
-                              <div className="flex items-start justify-between mb-3">
-                                <h4 className="font-medium text-gray-900">{feature.name}</h4>
-                                <div className={`w-5 h-5 rounded-full border flex items-center justify-center flex-shrink-0 ml-3 ${selectedFeatures[feature.id]
-                                    ? 'bg-[#c6f678] border-[#c6f678]'
-                                    : 'border-gray-300'
-                                  }`}>
-                                  {selectedFeatures[feature.id] && (
-                                    <Check className="w-3 h-3 text-black" />
-                                  )}
-                                </div>
-                              </div>
-                              <p className="text-sm text-gray-600 mb-3">{feature.description}</p>
-                              <p className="text-sm font-semibold text-gray-900">
-                                {formatPrice(feature.basePrice)}
-                              </p>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
+          <div className="mb-20 bg-gray-50 rounded-3xl overflow-hidden shadow-lg">
+            <div className="grid md:grid-cols-2 gap-0 items-center">
+              {/* Image Section */}
+              <div className="h-80 md:h-full">
+                <img
+                  src="https://images.unsplash.com/photo-1743038547753-70a161ff3079?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE4fHx8ZW58MHx8fHx8"
+                  alt="Custom web solution"
+                  className="object-cover w-full h-full"
+                />
               </div>
 
-              {/* Summary Panel */}
-              <div className="md:w-1/3">
-                <div className="sticky top-[100px] bg-black text-[#c6f678] p-6 rounded-2xl">
-                  <h3 className="text-xl font-bold mb-4">Your Custom Package</h3>
-
-                  <div className="mb-6">
-                    <h4 className="text-sm uppercase font-semibold mb-3 text-gray-400">Selected Features</h4>
-                    {allFeatures.filter(f => selectedFeatures[f.id]).length === 0 ? (
-                      <p className="text-sm text-gray-500">No features selected yet</p>
-                    ) : (
-                      <ul className="space-y-2">
-                        {allFeatures
-                          .filter(feature => selectedFeatures[feature.id])
-                          .map(feature => (
-                            <li key={feature.id} className="flex justify-between items-center text-sm">
-                              <span>{feature.name}</span>
-                              <span>{formatPrice(feature.basePrice)}</span>
-                            </li>
-                          ))
-                        }
-                      </ul>
-                    )}
-                  </div>
-
-                  <div className="border-t border-gray-800 pt-4 mb-6">
-                    <div className="flex justify-between items-center font-bold text-lg">
-                      <span>Total</span>
-                      <span>{formatPrice(calculateTotal())}</span>
-                    </div>
-                  </div>
-
-                  <button
-                    onClick={handleRequestQuote}
-                    className="w-full bg-[#c6f678] text-black py-3 rounded-lg font-semibold hover:bg-[#b8f566] transition-colors"
-                  >
-                    Request Custom Quote
-                  </button>
-                </div>
+              {/* Content Section */}
+              <div className="p-8 sm:p-12 lg:p-16">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                  Custom Web Solutions <br /> Built for Your Business
+                </h2>
+                <p className="text-gray-600 text-base sm:text-lg mb-8 max-w-xl">
+                  Whether you're launching a startup or scaling an enterprise product, we deliver tailor-made websites and platforms that align with your vision, goals, and timeline. Work directly with a team that values performance, design, and innovation.
+                </p>
+                <a
+                  href="/Contact"
+                  className="inline-block bg-black text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition"
+                >
+                  Let's Build Together
+                </a>
               </div>
             </div>
-
-            {/* Contact Card */}
-            {showContactCard && (
-              <AnimatedSection>
-                <div className="mt-8 p-6 bg-white border border-gray-200 rounded-xl">
-                  <h4 className="text-xl font-bold mb-4">Request Your Custom Quote</h4>
-                  <form onSubmit={handleSubmitQuote}>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                      <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                          Your Name
-                        </label>
-                        <input
-                          type="text"
-                          id="name"
-                          required
-                          value={contactName}
-                          onChange={(e) => setContactName(e.target.value)}
-                          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-black focus:border-black"
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                          Email Address
-                        </label>
-                        <input
-                          type="email"
-                          id="email"
-                          required
-                          value={contactEmail}
-                          onChange={(e) => setContactEmail(e.target.value)}
-                          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-black focus:border-black"
-                        />
-                      </div>
-                    </div>
-                    <div className="mb-4">
-                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                        Project Details (Optional)
-                      </label>
-                      <textarea
-                        id="message"
-                        rows={4}
-                        value={contactMessage}
-                        onChange={(e) => setContactMessage(e.target.value)}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-black focus:border-black"
-                      />
-                    </div>
-                    <div className="flex justify-end space-x-3">
-                      <button
-                        type="button"
-                        onClick={() => setShowContactCard(false)}
-                        className="px-4 py-2 text-gray-700 border border-gray-300 rounded-md hover:bg-gray-50"
-                      >
-                        Cancel
-                      </button>
-                      <button
-                        type="submit"
-                        className="px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800"
-                      >
-                        Submit Request
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </AnimatedSection>
-            )}
           </div>
         </AnimatedSection>
+
 
         {/* FAQ Section */}
         <AnimatedSection delay={400}>
@@ -541,7 +397,7 @@ export default function PricingSection() {
                       <p className="mt-2 text-xs sm:text-sm text-gray-600">{faq.answer}</p>
                     )}
                   </div>
-                </AnimatedSection>
+                </AnimatedSection>  
               ))}
             </div>
           </div>
