@@ -13,3 +13,14 @@
  *
  * export type TodoType = z.infer<typeof TodoSchema>;
  */
+export interface Registration {
+  _id: string;
+  name: string;
+  email: string;
+  contactNo: string;
+  collegeName: string;
+  courseSpecialization?: string;
+  yearOfStudy: string;
+  howDidYouHear: string;
+  registeredAt: string; // Comes as an ISO date string
+}
