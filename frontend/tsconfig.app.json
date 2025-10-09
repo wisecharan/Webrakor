@@ -25,7 +25,11 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+    // This line fixes the error by telling TypeScript about Vite's types
+    "types": ["vite/client"]
+    
   },
   "include": ["src/react-app"]
 }

@@ -1,7 +1,6 @@
-// src/react-app/pages/AdminDashboard.tsx
 import { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Registration } from '../../shared/types'; // Assuming you have a types file
+import { Registration } from '@/shared/types';
+import apiClient from '@/api/axios'; // Use path alias
 
 const AdminDashboard = () => {
   const [registrations, setRegistrations] = useState<Registration[]>([]);
@@ -18,13 +17,13 @@ const AdminDashboard = () => {
           return;
         }
 
-        const config = {
+        // Use the new apiClient and a relative path
+        const res = await apiClient.get('/api/admin/registrations', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        };
+        });
 
-        const res = await axios.get('http://localhost:5000/api/admin/registrations', config);
         setRegistrations(res.data);
       } catch (err: any) {
         setError(err.response?.data?.msg || 'Failed to fetch data.');
@@ -35,7 +34,8 @@ const AdminDashboard = () => {
 
     fetchRegistrations();
   }, []);
-
+  
+  // ... rest of the component is the same
   if (loading) return <p>Loading registrations...</p>;
   if (error) return <p className="text-red-500">{error}</p>;
 
@@ -51,6 +51,7 @@ const AdminDashboard = () => {
               <th className="py-2 px-4 border">Contact No.</th>
               <th className="py-2 px-4 border">College</th>
               <th className="py-2 px-4 border">Course</th>
+              <th className="py-2 px-4 border">Year</th>
               <th className="py-2 px-4 border">Registered On</th>
             </tr>
           </thead>
@@ -62,6 +63,7 @@ const AdminDashboard = () => {
                 <td className="py-2 px-4 border">{reg.contactNo}</td>
                 <td className="py-2 px-4 border">{reg.collegeName}</td>
                 <td className="py-2 px-4 border">{reg.courseSpecialization}</td>
+                <td className="py-2 px-4 border">{reg.yearOfStudy}</td>
                 <td className="py-2 px-4 border">{new Date(reg.registeredAt).toLocaleDateString()}</td>
               </tr>
             ))}

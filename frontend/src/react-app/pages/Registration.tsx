@@ -1,6 +1,5 @@
-// src/react-app/pages/Registration.tsx
 import React, { useState } from 'react';
-import axios from 'axios';
+import apiClient from '@/api/axios'; // Use path alias for cleaner import
 
 const Registration = () => {
   const [formData, setFormData] = useState({
@@ -25,9 +24,9 @@ const Registration = () => {
     setMessage('');
     setError('');
     try {
-      const res = await axios.post('http://localhost:5000/api/register', formData);
+      // Use the new apiClient and a relative path
+      const res = await apiClient.post('/api/register', formData);
       setMessage(res.data.msg);
-      // Optionally clear the form
       setFormData({
         name: '', email: '', contactNo: '', collegeName: '',
         courseSpecialization: '', yearOfStudy: '', howDidYouHear: 'Social Media',
@@ -41,7 +40,6 @@ const Registration = () => {
     <div className="container mx-auto p-8">
       <h1 className="text-3xl font-bold mb-6">Workshop Registration</h1>
       <form onSubmit={onSubmit} className="space-y-4 max-w-lg">
-        {/* Add input fields for each form item */}
         <input type="text" name="name" value={name} onChange={onChange} placeholder="Full Name" required className="w-full p-2 border rounded" />
         <input type="email" name="email" value={email} onChange={onChange} placeholder="Email Address" required className="w-full p-2 border rounded" />
         <input type="text" name="contactNo" value={contactNo} onChange={onChange} placeholder="Contact No." required className="w-full p-2 border rounded" />

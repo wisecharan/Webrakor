@@ -1,7 +1,6 @@
-// src/react-app/pages/AdminLogin.tsx
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import apiClient from '@/api/axios'; // Use path alias
 
 const AdminLogin = () => {
   const [formData, setFormData] = useState({ username: '', password: '' });
@@ -16,9 +15,10 @@ const AdminLogin = () => {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/admin/login', formData);
-      localStorage.setItem('token', res.data.token); // Save the token
-      navigate('/admin'); // Redirect to the dashboard
+      // Use the new apiClient and a relative path
+      const res = await apiClient.post('/api/admin/login', formData);
+      localStorage.setItem('token', res.data.token);
+      navigate('/admin');
     } catch (err: any) {
       setError(err.response?.data?.msg || 'Login failed!');
     }
