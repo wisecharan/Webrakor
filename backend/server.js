@@ -9,9 +9,20 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(cors()); // Allows cross-origin requests
 app.use(express.json()); // Allows parsing of JSON in request body
+
+// Health Check Endpoint
+app.get('/health', (req, res) => {
+  res.status(200).json({ 
+    status: 'UP', 
+    timestamp: new Date().toISOString() 
+  });
+});
+
+
 app.use('/api/register', require('./routes/register'));
 app.use('/api/admin', require('./routes/admin')); // Add this line
 // ...
+
 
 
 // Connect to MongoDB
