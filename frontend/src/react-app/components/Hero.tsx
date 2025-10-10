@@ -3,8 +3,7 @@ import { Settings, Target, Lightbulb, TrendingUp, ShieldCheck, Users } from "luc
 import { useEffect, useRef, FC, ReactNode } from 'react';
 
 
-import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+
 
 // Define the types for the props of the AnimatedSection component
 interface AnimatedSectionProps {
@@ -87,18 +86,22 @@ export default function Hero() {
 
         {/* Main Heading */}
         <AnimatedSection delay={100}>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-gray-900 leading-snug mb-4 sm:mb-6">
-            {/* A High-Performance Website.<br />
-            Built for Your Success. */}
+          {/* <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-gray-900 leading-snug mb-4 sm:mb-6">
+            A High-Performance Website.<br />
+            Built for Your Success.
+          </h1> */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-none mb-2.5 sm:mb-3.5">
             This Is Where <br />
             Developers Rise
           </h1>
         </AnimatedSection>
 
         <AnimatedSection delay={200}>
-          <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto mb-6 sm:mb-8">
-            {/* Launch a stunning website faster<br />
-            than you ever imagined. */}
+          {/* <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto mb-6 sm:mb-8">
+            Launch a stunning website faster<br />
+            than you ever imagined.
+          </p> */}
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto mb-3.5 sm:mb-4.5">
             A Webrakors campaign redefining the way we design, build, and deliver innovation through the Software Development Life Cycle.
           </p>
         </AnimatedSection>
@@ -110,7 +113,12 @@ export default function Hero() {
               Get Started for free
             </button>
           </a> */}
-          <div className="flex-shrink-0 mt-4 md:mt-0 pb-7">
+          <a href="/register">
+            <button className="bg-black text-white px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-medium hover:bg-gray-800 shadow-md transition-colors mb-3">
+              Be Part of The Rise
+            </button>
+          </a>
+          {/* <div className="flex-shrink-0 mt-4 md:mt-0 pb-7">
               <Link
                 to="/register"
                 className="group inline-flex items-center justify-center px-6 py-3 rounded-full bg-black text-[#c6f678] font-semibold text-base shadow-lg hover:scale-[1.03] transition-transform duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 focus:ring-offset-slate-50"
@@ -118,7 +126,7 @@ export default function Hero() {
                 Be Part of the Rise
                 <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
-            </div>
+            </div> */}
         </AnimatedSection>
 
         {/* Social Proof */}
