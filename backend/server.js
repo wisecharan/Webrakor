@@ -6,6 +6,11 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+const allowedOrigins = [
+  'http://localhost:5173', // Your frontend development server
+  // 'https://your-deployed-site.com' // Add your production URL here later
+];
+
 // Middleware
 app.use(cors({
   origin: function (origin, callback) {
