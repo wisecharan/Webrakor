@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 5000;
 
 const allowedOrigins = [
   'http://localhost:5173', // Your frontend development server
-  'https://webrakor.onrender.com' // Add your production URL here later
+  'https://webrakor.netlify.app' // Add your production URL here later
 ];
 
 // Middleware
