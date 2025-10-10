@@ -205,13 +205,13 @@ const Registration = () => {
                   </div>
                    <div className="mt-4">
                     {/* UPDATED: Close button is now visible */}
-                    <button
+                    {/* <button
                       type="button"
                       className="text-xs text-gray-500 hover:underline"
                       onClick={() => setIsModalOpen(false)}
                     >
                       I'll join later
-                    </button>
+                    </button> */}
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
