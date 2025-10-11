@@ -86,38 +86,38 @@ export default function Hero() {
 
         {/* Main Heading */}
         <AnimatedSection delay={100}>
-          {/* <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-gray-900 leading-snug mb-4 sm:mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-gray-900 leading-snug mb-4 sm:mb-6">
             A High-Performance Website.<br />
             Built for Your Success.
-          </h1> */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-none mb-2.5 sm:mb-3.5">
+          </h1>
+          {/* <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-none mb-2.5 sm:mb-3.5">
             This Is Where <br />
             Developers Rise
-          </h1>
+          </h1> */}
         </AnimatedSection>
 
         <AnimatedSection delay={200}>
-          {/* <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto mb-6 sm:mb-8">
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto mb-6 sm:mb-8">
             Launch a stunning website faster<br />
             than you ever imagined.
-          </p> */}
-          <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto mb-3.5 sm:mb-4.5">
-            A Webrakors campaign redefining the way we design, build, and deliver innovation through the Software Development Life Cycle.
           </p>
+          {/* <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto mb-3.5 sm:mb-4.5">
+            A Webrakors campaign redefining the way we design, build, and deliver innovation through the Software Development Life Cycle.
+          </p> */}
         </AnimatedSection>
 
         {/* CTA Button */}
         <AnimatedSection delay={300}>
-          {/* <a href="/Contact">
+          <a href="/Contact">
             <button className="bg-black text-white px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-medium hover:bg-gray-800 shadow-md transition-colors mb-6">
               Get Started for free
             </button>
-          </a> */}
-          <a href="/register">
+          </a>
+          {/* <a href="/register">
             <button className="bg-black text-white px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-medium hover:bg-gray-800 shadow-md transition-colors mb-3">
               Be Part of The Rise
             </button>
-          </a>
+          </a> */}
           {/* <div className="flex-shrink-0 mt-4 md:mt-0 pb-7">
               <Link
                 to="/register"
